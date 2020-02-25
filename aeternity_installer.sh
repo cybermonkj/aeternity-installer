@@ -75,19 +75,19 @@ install_prompt () {
 install_deps_anylinux() {
     OS_RELEASE=$(lsb_release -r -s)
     echo -e "\nPrepare host system and install dependencies ...\n"
-    #sudo apt-get update
-    #sudo apt-get upgrade -y
-    #sudo apt-get install -y curl libssl1.0.0
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    sudo apt-get install -y curl libssl1.0.0
 
     #if [[ "$OS_RELEASE" = "16.04" ]]; then
     sudo apt-get install -y build-essential
-    #LIB_VERSION=1.0.16
-    #wget https://download.libsodium.org/libsodium/releases/old/libsodium-1.0.16.tar.gz #Libsodium was obsolated so i corrected the link
-    #tar -xf libsodium-${LIB_VERSION}.tar.gz && cd libsodium-${LIB_VERSION} &&
-    #./configure && make && sudo make install && sudo ldconfig
-    #cd .. && rm -rf libsodium-${LIB_VERSION} && rm libsodium-${LIB_VERSION}.tar.gz
+    LIB_VERSION=1.0.16
+    wget https://download.libsodium.org/libsodium/releases/old/libsodium-1.0.16.tar.gz #Libsodium was obsolated so i corrected the link
+    tar -xf libsodium-${LIB_VERSION}.tar.gz && cd libsodium-${LIB_VERSION} &&
+    ./configure && make && sudo make install && sudo ldconfig
+    cd .. && rm -rf libsodium-${LIB_VERSION} && rm libsodium-${LIB_VERSION}.tar.gz
     #elif [[ "$OS_RELEASE" = "18.04" ]]; then
-    #sudo apt-get install -y curl libsodium23
+    sudo apt-get install -y curl libsodium23
     #else
     #   echo -e "Unsupported Ubuntu version! Please refer to the documentation for supported versions."
     #  exit 1
